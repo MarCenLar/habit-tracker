@@ -1,0 +1,266 @@
+.voice-control-button {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #4caf50;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.voice-control-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.voice-control-button.listening {
+  background: #f44336;
+}
+
+.microphone-icon {
+  width: 24px;
+  height: 24px;
+  color: white;
+  position: relative;
+  z-index: 2;
+}
+
+.microphone-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Pulse Animation */
+.pulse-rings {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.ring:nth-child(1) {
+  width: 100%;
+  height: 100%;
+  animation-delay: 0s;
+}
+
+.ring:nth-child(2) {
+  width: 80%;
+  height: 80%;
+  animation-delay: 0.3s;
+}
+
+.ring:nth-child(3) {
+  width: 60%;
+  height: 60%;
+  animation-delay: 0.6s;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Voice Feedback */
+.voice-feedback {
+  position: fixed;
+  bottom: 96px;
+  right: 24px;
+  max-width: 320px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+  animation: slideIn 0.3s ease;
+}
+
+.voice-feedback-content {
+  padding: 16px;
+}
+
+.command, .response {
+  margin-bottom: 8px;
+}
+
+.command:last-child, .response:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-right: 8px;
+}
+
+.text {
+  color: #495057;
+}
+
+/* Voice Status */
+.voice-status {
+  position: fixed;
+  bottom: 96px;
+  right: 24px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: fadeIn 0.3s ease;
+  z-index: 999;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.listening-dot {
+  width: 8px;
+  height: 8px;
+  background: #f44336;
+  border-radius: 50%;
+  animation: blink 1s infinite;
+}
+
+.help-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 4px;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.help-button:hover {
+  opacity: 1;
+}
+
+/* Voice Unsupported Warning */
+.voice-unsupported {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #fff3cd;
+  color: #856404;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .voice-feedback {
+    background: #2c3e50;
+  }
+
+  .label {
+    color: #e0e0e0;
+  }
+
+  .text {
+    color: #cbd5e0;
+  }
+
+  .voice-unsupported {
+    background: #2c3e50;
+    color: #ffd700;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .voice-control-button,
+  .pulse-rings,
+  .listening-dot {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .voice-control-button {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .voice-feedback {
+    bottom: 88px;
+    right: 16px;
+    max-width: calc(100vw - 32px);
+  }
+
+  .voice-status {
+    bottom: 88px;
+    right: 16px;
+  }
+}

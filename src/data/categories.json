@@ -1,0 +1,135 @@
+{
+  "categories": [
+    {
+      "id": "health",
+      "name": "Health & Wellness",
+      "icon": "💪",
+      "color": "#4CAF50",
+      "suggestions": [
+        {
+          "id": "exercise",
+          "name": "Daily Exercise",
+          "description": "Stay active with regular physical activity",
+          "frequency": "daily",
+          "recommendedTime": "morning",
+          "metrics": ["duration", "intensity"],
+          "goals": {
+            "beginner": "15 minutes",
+            "intermediate": "30 minutes",
+            "advanced": "60 minutes"
+          }
+        },
+        {
+          "id": "meditation",
+          "name": "Meditation",
+          "description": "Practice mindfulness and mental clarity",
+          "frequency": "daily",
+          "recommendedTime": "morning",
+          "metrics": ["duration", "focus_level"],
+          "goals": {
+            "beginner": "5 minutes",
+            "intermediate": "15 minutes",
+            "advanced": "30 minutes"
+          }
+        },
+        {
+          "id": "water",
+          "name": "Water Intake",
+          "description": "Stay hydrated throughout the day",
+          "frequency": "daily",
+          "metrics": ["glasses"],
+          "goals": {
+            "target": 8,
+            "unit": "glasses"
+          }
+        }
+      ]
+    },
+    {
+      "id": "productivity",
+      "name": "Productivity",
+      "icon": "📚",
+      "color": "#2196F3",
+      "suggestions": [
+        {
+          "id": "deep-work",
+          "name": "Deep Work Session",
+          "description": "Focused work without distractions",
+          "frequency": "daily",
+          "recommendedTime": "morning",
+          "metrics": ["duration", "focus_score"],
+          "goals": {
+            "beginner": "25 minutes",
+            "intermediate": "50 minutes",
+            "advanced": "90 minutes"
+          }
+        },
+        {
+          "id": "learning",
+          "name": "Learning Time",
+          "description": "Dedicate time to learn something new",
+          "frequency": "daily",
+          "metrics": ["duration", "topics_covered"],
+          "goals": {
+            "beginner": "15 minutes",
+            "intermediate": "30 minutes",
+            "advanced": "60 minutes"
+          }
+        }
+      ]
+    },
+    {
+      "id": "personal",
+      "name": "Personal Growth",
+      "icon": "🌱",
+      "color": "#9C27B0",
+      "suggestions": [
+        {
+          "id": "gratitude",
+          "name": "Gratitude Journal",
+          "description": "Write down things you're grateful for",
+          "frequency": "daily",
+          "recommendedTime": "evening",
+          "metrics": ["entries"],
+          "goals": {
+            "target": 3,
+            "unit": "items"
+          }
+        },
+        {
+          "id": "reading",
+          "name": "Reading",
+          "description": "Read books or articles",
+          "frequency": "daily",
+          "metrics": ["duration", "pages"],
+          "goals": {
+            "beginner": "10 pages",
+            "intermediate": "20 pages",
+            "advanced": "40 pages"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mindfulness",
+      "name": "Mindfulness",
+      "icon": "🧘",
+      "color": "#FF9800",
+      "suggestions": [
+        {
+          "id": "breathing",
+          "name": "Breathing Exercise",
+          "description": "Practice deep breathing",
+          "frequency": "daily",
+          "recommendedTime": "anytime",
+          "metrics": ["duration", "cycles"],
+          "goals": {
+            "beginner": "5 cycles",
+            "intermediate": "10 cycles",
+            "advanced": "20 cycles"
+          }
+        }
+      ]
+    }
+  ]
+}

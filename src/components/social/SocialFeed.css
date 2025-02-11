@@ -1,0 +1,159 @@
+.social-feed {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .social-feed {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.shared-habits, .group-challenges {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.shared-habit-card, .challenge-card {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.shared-habit-card:hover, .challenge-card:hover {
+  transform: translateY(-2px);
+}
+
+.habit-header, .challenge-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.habit-header h3, .challenge-header h3 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.shared-by, .challenge-duration {
+  font-size: 0.9em;
+  color: #6c757d;
+}
+
+.habit-description, .challenge-description {
+  margin: 12px 0;
+  color: #495057;
+}
+
+.habit-stats, .challenge-stats {
+  display: flex;
+  gap: 16px;
+  margin: 12px 0;
+  color: #6c757d;
+}
+
+.habit-actions {
+  display: flex;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.like-button, .share-button, .join-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-weight: 500;
+}
+
+.like-button {
+  background-color: #f8f9fa;
+  color: #dc3545;
+}
+
+.like-button.liked {
+  background-color: #dc3545;
+  color: white;
+}
+
+.share-button {
+  background-color: #f8f9fa;
+  color: #0d6efd;
+}
+
+.join-button {
+  background-color: #198754;
+  color: white;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.join-button:hover {
+  background-color: #157347;
+}
+
+.comments-section {
+  margin-top: 16px;
+  border-top: 1px solid #dee2e6;
+  padding-top: 16px;
+}
+
+.comment {
+  margin-bottom: 12px;
+  padding: 8px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.comment-user {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.comment-text {
+  margin-left: 8px;
+  color: #495057;
+}
+
+.comment-date {
+  float: right;
+  font-size: 0.8em;
+  color: #6c757d;
+}
+
+.comment-form input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  margin-top: 12px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.progress {
+  height: 100%;
+  background-color: #0d6efd;
+  transition: width 0.3s ease;
+}
+
+h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-weight: 600;
+}

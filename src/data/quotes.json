@@ -1,0 +1,61 @@
+{
+  "motivationalQuotes": [
+    {
+      "id": 1,
+      "quote": "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+      "author": "Winston Churchill"
+    },
+    {
+      "id": 2,
+      "quote": "The only way to do great work is to love what you do.",
+      "author": "Steve Jobs"
+    },
+    {
+      "id": 3,
+      "quote": "Small daily improvements are the key to staggering long-term results.",
+      "author": "Anonymous"
+    },
+    {
+      "id": 4,
+      "quote": "Habits are the compound interest of self-improvement.",
+      "author": "James Clear"
+    },
+    {
+      "id": 5,
+      "quote": "You don't have to be great to start, but you have to start to be great.",
+      "author": "Zig Ziglar"
+    }
+  ],
+  "achievements": [
+    {
+      "id": "streak-7",
+      "name": "Week Warrior",
+      "description": "Maintain a 7-day streak",
+      "icon": "🏅"
+    },
+    {
+      "id": "streak-30",
+      "name": "Monthly Master",
+      "description": "Maintain a 30-day streak",
+      "icon": "🏆"
+    },
+    {
+      "id": "perfect-week",
+      "name": "Perfect Week",
+      "description": "Complete all habits for 7 consecutive days",
+      "icon": "⭐"
+    },
+    {
+      "id": "early-bird",
+      "name": "Early Bird",
+      "description": "Complete morning habits before 8 AM",
+      "icon": "🌅"
+    },
+    {
+      "id": "night-owl",
+      "name": "Night Owl",
+      "description": "Complete evening habits after 8 PM",
+      "icon": "🌙"
+    }
+  ]
+}

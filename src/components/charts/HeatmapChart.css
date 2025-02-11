@@ -1,0 +1,137 @@
+.heatmap-container {
+  position: relative;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+.heatmap-container svg {
+  overflow: visible;
+}
+
+.dayLabel {
+  font-size: 11px;
+  fill: #666;
+  text-anchor: start;
+}
+
+.monthLabel {
+  font-size: 11px;
+  fill: #666;
+  text-anchor: start;
+}
+
+.heatmap-tooltip {
+  position: absolute;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  pointer-events: none;
+  font-size: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  min-width: 150px;
+}
+
+.tooltip-date {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #2c3e50;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 3px;
+}
+
+.tooltip-status {
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.tooltip-metrics {
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px solid #eee;
+  color: #666;
+}
+
+.tooltip-metrics div {
+  margin: 2px 0;
+}
+
+/* Legend styles */
+.legend-title {
+  font-size: 12px;
+  fill: #666;
+}
+
+.legend-axis path {
+  display: none;
+}
+
+.legend-axis line {
+  stroke: #ddd;
+}
+
+.legend-axis text {
+  font-size: 10px;
+  fill: #666;
+}
+
+/* Animation */
+rect {
+  transition: stroke 0.2s ease;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .heatmap-container {
+    background: #1a1a1a;
+  }
+
+  .heatmap-tooltip {
+    background: rgba(26, 26, 26, 0.95);
+    border-color: #333;
+  }
+
+  .tooltip-date {
+    color: #e0e0e0;
+    border-bottom-color: #333;
+  }
+
+  .tooltip-metrics {
+    border-top-color: #333;
+    color: #999;
+  }
+
+  .dayLabel,
+  .monthLabel,
+  .legend-title,
+  .legend-axis text {
+    fill: #999;
+  }
+
+  .legend-axis line {
+    stroke: #333;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .heatmap-container {
+    padding: 10px;
+    overflow-x: auto;
+  }
+
+  .heatmap-container svg {
+    min-width: 600px; /* Ensure minimum width for readability */
+  }
+
+  .dayLabel,
+  .monthLabel {
+    font-size: 10px;
+  }
+}

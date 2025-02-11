@@ -1,38 +1,290 @@
-.App {
-  text-align: center;
+:root {
+  /* Light theme */
+  --primary-color: #6366f1;
+  --primary-light: #818cf8;
+  --secondary-color: #1e293b;
+  --success-color: #22c55e;
+  --danger-color: #ef4444;
+  --background-color: #f8fafc;
+  --surface-color: rgba(255, 255, 255, 0.8);
+  --text-color: #0f172a;
+  --text-secondary: #64748b;
+  --border-color: #e2e8f0;
+  --shadow-color: rgba(51, 65, 85, 0.08);
+  --chart-background: rgba(255, 255, 255, 0.9);
+  --glass-background: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --highlight: rgba(99, 102, 241, 0.1);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+[data-theme='dark'] {
+  --primary-color: #818cf8;
+  --primary-light: #6366f1;
+  --secondary-color: #334155;
+  --success-color: #22c55e;
+  --danger-color: #ef4444;
+  --background-color: #0f172a;
+  --surface-color: rgba(30, 41, 59, 0.8);
+  --text-color: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --border-color: #334155;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --chart-background: rgba(30, 41, 59, 0.9);
+  --glass-background: rgba(30, 41, 59, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --highlight: rgba(99, 102, 241, 0.05);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-header {
-  background-color: #282c34;
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Mobile-specific styles */
+.cordova-app {
+  /* Prevent overscroll bounce */
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cordova-app .nav-bar {
+  padding-top: env(safe-area-inset-top);
+  height: auto;
+  min-height: 60px;
+}
+
+.cordova-app .nav-tabs {
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 5px;
+}
+
+.cordova-app .nav-tab {
+  min-width: auto;
+  padding: 8px 12px;
+  margin: 2px;
+  font-size: 14px;
+}
+
+.cordova-app .main-content {
+  padding-bottom: env(safe-area-inset-bottom);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Regular web styles */
+.app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: var(--background-color);
+}
+
+/* Navigation */
+.nav-bar {
+  background: var(--glass-background);
+  padding: 1.5rem;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  box-shadow: var(--glass-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 0 0 16px 16px;
+}
+
+.nav-brand h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  background: linear-gradient(to right, var(--primary-color), var(--primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 1rem;
+  background: var(--background-color);
+  padding: 0.5rem;
+  border-radius: 12px;
+}
+
+.nav-tab {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.nav-tab.active {
+  background: var(--primary-color);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-tab:hover:not(.active) {
+  color: var(--primary-color);
+  background: var(--surface-color);
 }
 
-@keyframes App-logo-spin {
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 1rem;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.section-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Gamification Layout */
+.gamification-section {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.gamification-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.gamification-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.gamification-sidebar {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+/* Animations */
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .gamification-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gamification-sidebar {
+    position: static;
+  }
+
+  .nav-bar {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-bar {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .nav-tabs {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .nav-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-tab {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .section-content {
+    padding: 0.5rem;
+  }
+
+  .gamification-section {
+    padding: 1rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus States */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Touch Device Optimization */
+@media (pointer: coarse) {
+  .nav-tab,
+  button {
+    min-height: 44px;
+    min-width: 44px;
   }
 }

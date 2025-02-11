@@ -1,0 +1,363 @@
+.gamification-section {
+  display: flex;
+  height: calc(100vh - 100px);
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.quest-container, .store-container, .achievements-container {
+  background: var(--glass-background);
+  border-radius: 16px;
+  box-shadow: var(--glass-shadow);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  height: 100%;
+}
+
+.quest-container {
+  flex: 0 0 300px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.store-container {
+  flex: 0 0 600px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.achievements-container {
+  flex: 0 0 300px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Quest Log Styles */
+.quest-container h2 {
+  font-size: 1.75rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+}
+
+.quest-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.quest-item {
+  background: var(--surface-color);
+  padding: 1.25rem;
+  border-radius: 12px;
+  box-shadow: var(--glass-shadow);
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.quest-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.quest-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.quest-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.quest-reward {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.quest-progress {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  margin-top: 1rem;
+  overflow: hidden;
+}
+
+.quest-progress-bar {
+  height: 100%;
+  background: linear-gradient(to right, var(--primary-color), var(--primary-light));
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* Store Styles */
+.store-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.store-title-section {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.store-filters {
+  display: flex;
+  gap: 1rem;
+}
+
+.filter-select, .sort-select {
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-background);
+  color: var(--text-color);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-select:hover, .sort-select:hover {
+  border-color: var(--primary-color);
+}
+
+.store-header h2 {
+  font-size: 1.75rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  margin: 0;
+}
+
+.user-balance {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.gems, .level {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  background: var(--glass-background);
+  border: 1px solid var(--glass-border);
+}
+
+.store-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.store-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.store-item {
+  background: var(--glass-background);
+  padding: 1.5rem;
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid var(--glass-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.store-item.limited::before {
+  content: "Limited Time!";
+  position: absolute;
+  top: 10px;
+  left: -30px;
+  background: linear-gradient(135deg, #ff4d4d, #f6006e);
+  color: white;
+  padding: 5px 40px;
+  transform: rotate(-45deg);
+  font-size: 0.8rem;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.store-item.owned {
+  border: 2px solid var(--success-color);
+}
+
+.store-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.store-item-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.store-item h3 {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  color: var(--text-color);
+}
+
+.store-item p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.effects-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.effect-tag {
+  background: var(--glass-background);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  border: 1px solid var(--glass-border);
+}
+
+.store-item-price {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--glass-background);
+  border-radius: 20px;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
+/* Achievement Styles */
+.achievements-container h2 {
+  font-size: 1.75rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+}
+
+.achievements-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.achievement-item {
+  background: var(--surface-color);
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+}
+
+.achievement-item.unlocked {
+  border-color: var(--success-color);
+  background: linear-gradient(rgba(34, 197, 94, 0.1), transparent);
+}
+
+.achievement-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  display: block;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.achievement-item.unlocked .achievement-icon {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Purchase Status */
+.purchase-status {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  z-index: 1000;
+}
+
+.purchase-status.loading { background: var(--primary-color); }
+.purchase-status.success { background: var(--success-color); }
+.purchase-status.error { background: var(--danger-color); }
+
+/* Custom Scrollbar */
+.quest-list,
+.store-content,
+.achievements-grid {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) transparent;
+}
+
+.quest-list::-webkit-scrollbar,
+.store-content::-webkit-scrollbar,
+.achievements-grid::-webkit-scrollbar {
+  width: 6px;
+}
+
+.quest-list::-webkit-scrollbar-track,
+.store-content::-webkit-scrollbar-track,
+.achievements-grid::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.quest-list::-webkit-scrollbar-thumb,
+.store-content::-webkit-scrollbar-thumb,
+.achievements-grid::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 20px;
+}
+
+/* Hide scrollbar when not hovering */
+.quest-list::-webkit-scrollbar-thumb,
+.store-content::-webkit-scrollbar-thumb,
+.achievements-grid::-webkit-scrollbar-thumb {
+  opacity: 0;
+}
+
+.quest-list:hover::-webkit-scrollbar-thumb,
+.store-content:hover::-webkit-scrollbar-thumb,
+.achievements-grid:hover::-webkit-scrollbar-thumb {
+  opacity: 1;
+}

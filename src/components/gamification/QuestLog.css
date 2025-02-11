@@ -1,0 +1,245 @@
+.quest-log {
+  background: var(--surface-color);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px var(--shadow-color);
+}
+
+.quest-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.quest-header h2 {
+  margin: 0;
+  color: var(--text-color);
+  font-size: 1.5rem;
+}
+
+.quest-tabs {
+  display: flex;
+  gap: 0.5rem;
+  background: var(--background-color);
+  padding: 0.25rem;
+  border-radius: 8px;
+}
+
+.tab-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-button.active {
+  background: var(--primary-color);
+  color: white;
+}
+
+.quests-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.quest-card {
+  background: var(--background-color);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.quest-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--rarity-color);
+}
+
+.quest-card:hover {
+  transform: translateX(4px);
+}
+
+.quest-content {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.quest-icon {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--surface-color);
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.quest-info {
+  flex: 1;
+}
+
+.quest-info h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quest-info p {
+  margin: 0 0 1rem 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.rarity-badge {
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.rarity-badge.legendary {
+  background: rgba(255, 215, 0, 0.1);
+  color: var(--legendary-color, #ffd700);
+}
+
+.rarity-badge.epic {
+  background: rgba(163, 53, 238, 0.1);
+  color: var(--epic-color, #a335ee);
+}
+
+.rarity-badge.rare {
+  background: rgba(0, 112, 221, 0.1);
+  color: var(--rare-color, #0070dd);
+}
+
+.rarity-badge.common {
+  background: rgba(157, 157, 157, 0.1);
+  color: var(--common-color, #9d9d9d);
+}
+
+.progress-bar {
+  height: 4px;
+  background: var(--border-color);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--rarity-color);
+  transition: width 0.3s ease;
+}
+
+.quest-rewards {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.reward-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.claim-button {
+  margin-left: auto;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--border-color);
+  color: var(--text-color);
+  font-weight: 600;
+  cursor: not-allowed;
+  transition: all 0.2s ease;
+}
+
+.claim-button.ready {
+  background: var(--primary-color);
+  color: white;
+  cursor: pointer;
+}
+
+.claim-button.ready:hover {
+  background: var(--primary-color-dark);
+  transform: translateY(-1px);
+}
+
+.quest-card.complete {
+  border-color: var(--rarity-color);
+}
+
+.quest-card.complete .progress-fill {
+  background: var(--success-color);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quest-card,
+  .progress-fill,
+  .claim-button {
+    transition: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .quest-log {
+    padding: 1rem;
+  }
+
+  .quest-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .quest-tabs {
+    width: 100%;
+  }
+
+  .tab-button {
+    flex: 1;
+    text-align: center;
+  }
+
+  .quest-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .quest-icon {
+    margin: 0 auto;
+  }
+
+  .quest-rewards {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .claim-button {
+    width: 100%;
+  }
+}
